@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-http.listen(3000)
+const PORT = process.env.PORT || 3000
+http.listen(PORT)
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))

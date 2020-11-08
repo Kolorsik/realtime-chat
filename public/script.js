@@ -1,4 +1,5 @@
-const socket = io('https://super-text-chat.herokuapp.com:3000/')
+const PORT = process.env.PORT || 3000
+const socket = io(`https://super-text-chat.herokuapp.com:${PORT}/`)
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
