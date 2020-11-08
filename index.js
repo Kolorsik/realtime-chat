@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
-var http = require('http').Server(app);
+var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-const PORT = process.env.PORT || 3000
-http.listen(PORT)
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -27,3 +25,5 @@ io.on('connection', socket => {
         delete users[socket.id]
     })
 })
+
+http.listen(process.env.PORT || 3000)
